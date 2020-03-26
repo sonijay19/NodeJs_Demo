@@ -1,0 +1,3 @@
+Dashboard = /jay/welcome
+DocUser = /jay/docuser
+Patient = /jay/patient
