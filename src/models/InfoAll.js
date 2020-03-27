@@ -39,8 +39,25 @@ const RegLabChemSchema = new mongoose.Schema({
     domain : String
 });
 
+const PatInfoSchema = new mongoose.Schema({
+    _id : String,
+    pName : String,
+    pGender : String,
+    pDate : String,
+    pEmail : String,
+    pAddress : String,
+    pCity : String,
+    pState : String,
+    pPincode : String,
+    domain : String,
+    pHeight : String,
+    pWeight : String,
+    pBlood : String,
+});
+
 const RegChem = mongoose.model('RegChem',RagchemSchema);
 const RegDoc = mongoose.model('RegDoc',RegdocSchema);
 const RegLabChem = mongoose.model('RegLabChem',RegLabChemSchema);
+const PatInfo = mongoose.model('PatInfo',PatInfoSchema);
 
-module.exports = {RegChem,RegDoc,RegLabChem};
+module.exports = {RegChem,RegDoc,RegLabChem,PatInfo};

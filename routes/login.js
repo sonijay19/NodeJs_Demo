@@ -16,7 +16,7 @@ router.all('/logDoc',(req,res,next) => {
         try{
             err ? 
             res.send('Pls register') :
-            (RegDoc.drPassword == req.body.drPassWord ? res.send('1') : res.send('Password Is Wrong'));
+            (RegDoc.drPassword == req.body.drPassWord ? (req.session.email = req.body.drEmail,res.send('1')): res.send('Password Is Wrong'));
         }catch{res.send('You do not register yet');}
     });
 });
@@ -29,7 +29,7 @@ router.all('/logchem',(req,res,next) => {
         try{
             err ? 
             res.send('Pls register') :
-            (RegChem.cPassword == req.body.cPassword ? res.send('1') : res.send('Password Is Wrong'));
+            (RegChem.cPassword == req.body.cPassword ? (req.session.email = req.body.cEmail,res.send('1')) : res.send('Password Is Wrong'));
         }catch{res.send('You do not register yet');}
     });
 });
@@ -42,7 +42,7 @@ router.all('/loglabchem',(req,res,next) => {
         try{
             err ? 
             res.send('Pls register') :
-            (RegLabChem.lPassword == req.body.lPassword ? res.send('1') : res.send('Password Is Wrong'));
+            (RegLabChem.lPassword == req.body.lPassword ? (req.session.email = req.body.lEmail,res.send('1')) : res.send('Password Is Wrong'));
         }catch{res.send('You do not register yet');}
     });
 });

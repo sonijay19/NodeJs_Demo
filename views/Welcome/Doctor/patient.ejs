@@ -27,11 +27,12 @@
      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
      <!-- CSS Files -->
      <link href="/Welcome/assets/css/bootstrap.min.css" rel="stylesheet" />
-     <link href="/Welcome/assets/css/light-bootstrap-dashboard.css?v=2.0.0 " rel="stylesheet" />
+     <link href="/Welcome/assets/css/light-bootstrap-dashboard.css" rel="stylesheet" />
      <!-- CSS Just for demo purpose, don't include it in your project -->
-     <link href="../assets/css/demo.css" rel="stylesheet" />
+     <link href="/Welcome/assets/css/demo.css" rel="stylesheet" />
      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
  </head>
  
@@ -111,7 +112,7 @@
                          <ul class="nav navbar-nav mr-auto">
                              <li class="menu-active"><a href="../../index.html">Home</a></li>
                              <li><a href="../../about.html">About Us</a></li>
-                             <li><a href="">Logout</a></li>
+                             <li><a href="/jay/logout">Logout</a></li>
                          </ul>
                      </div>
                  </div>
@@ -126,7 +127,7 @@
                                      <h4 class="card-title">Patient Details</h4>
                                  </div>
                                  <div class="card-body">
-                                     <form>
+                                     <form action="/jay/reg/patinfo" method="POST">
                                          <div class="row">
                                              <div class="col-md-12 pr-1">
                                                  <div class="form-group">
@@ -264,6 +265,9 @@
  <script src="/Welcome/assets/js/light-bootstrap-dashboard.js?v=2.0.0 " type="text/javascript"></script>
  <!-- Light Bootstrap Dashboard DEMO methods, don't include it in your project! -->
  <script src="/Welcome/assets/js/demo.js"></script>
+ <script src="/Welcome/Doctor/js/sign_pat.js"></script>
+ <script src="/Welcome/Doctor/js/signin_doc.js"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>

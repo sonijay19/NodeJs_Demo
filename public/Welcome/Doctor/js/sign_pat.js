@@ -2,7 +2,7 @@ function patins() {
 	console.log('in js');
     $.ajax({
         method: 'post',
-        url: '/Health1/SignUp',
+        url: '/jay/reg/patinfo',
         data:({
         	pName : $('#pName').val(),
         	pGender : $('#pGender').val(),
@@ -20,7 +20,7 @@ function patins() {
         }),
         success: function(responseText) {
             if(responseText == "1"){
-            	window.location.assign("table.jsp");
+            	window.location.assign("/jay/table");
             }
             else{
             	$("#jay_pat_sign").html(responseText);
