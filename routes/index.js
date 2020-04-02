@@ -1,17 +1,17 @@
-var express = require('express');
-var session = require('express-session');
-var app = express();
-var router = express.Router();
-var mongoose = require('mongoose');
-var bodyParser = require('body-parser');
-const {RegChem,RegDoc,RegLabChem} = require('../src/models/InfoAll');
-var loginroutes = require('./login');
-var regroutes = require('./register');
+import express, { Router } from 'express';
+import session from 'express-session';
+import ejs from 'ejs';
+let app = express();
+let router = Router();
+import { json, urlencoded } from 'body-parser';
+import loginroutes from './login';
+import regroutes from './register';
+import addrouters from './add';
+import Pati_History from '../src/models/history';
+import PatInfo from '../src/models/InfoAll/PatInfo';
 
-
-router.use(bodyParser.json());
-router.use(bodyParser.urlencoded({ extended: true }));
-mongoose.Promise = global.Promise;
+router.use(json());
+router.use(urlencoded({ extended: true }));
 router.use(session({'secret':'jay',saveUninitialized:true,resave:true}));
 
 
@@ -26,6 +26,9 @@ router.get('/', (req, res, next) => {
 
 /* => Login routers  */
 router.use('/login',loginroutes);
+
+/* => Add The history */
+router.use('/add',addrouters);
 
 /* Logout session or logout */
 router.all('/logout', (req,res)=>{
@@ -50,6 +53,19 @@ router.all('/welcome',(req,res,next) => {
   }
 });
 
+/* Display The History */
+router.all('/history',(req,res,next)=>{
+  if(req.session.email){
+    let id = '9426980359';
+    Pati_History.findById({_id:id})
+    .exec((err,data)=>{
+      res.render('Welcome/Doctor/history',{pat_his:data});
+    });
+  }else{
+    res.redirect('/jay');
+  }
+});
+
 /*  */
 router.all('/docuser',(req,res,next) => {
   if(req.session.email){
@@ -68,7 +84,7 @@ router.all('/patient',(req,res,next) => {
   }
 });
 
-/*  */
+/*  */  
 router.all('/table',(req,res,next) => {
   if(req.session.email){
     res.render('Welcome/Doctor/table');
@@ -86,5 +102,17 @@ router.all('/history',(req,res,next) => {
   }
 });
 
+router.all('/search',(req,res,next)=>{
+  if(req.session.email){
+    let id = '9426980359';
+    PatInfo.findById({_id:id})
+    .exec((err,data)=>{
+      console.log(data);
+      res.send(data);
+    });
+  }else{
+    res.redirect('/jay');
+  }
+});
 
-module.exports = router;
+export default router;

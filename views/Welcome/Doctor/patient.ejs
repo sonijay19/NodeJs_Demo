@@ -33,6 +33,7 @@
      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
      <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+     <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
  </head>
  
@@ -132,7 +133,7 @@
                                              <div class="col-md-12 pr-1">
                                                  <div class="form-group">
                                                      <label>Name</label>
-                                                     <input type="text" class="form-control" placeholder="Full Name" name="pName" required>
+                                                     <input type="text" class="form-control" placeholder="Full Name" name="pName" id="pName" required>
                                                  </div>
                                              </div>
                                          </div>
@@ -140,7 +141,7 @@
                                              <div class="col-md-6 pr-1">
                                                  <div class="form-group">
                                                      <label>DOB</label>
-                                                     <input type="date" class="form-control" name="pDate" required>
+                                                     <input type="date" class="form-control" name="pDate" id="pDate" required>
                                                  </div>
                                              </div>
                                              <div class="col-md-6">
@@ -154,13 +155,13 @@
                                              <div class="col-md-6 pr-1">
                                                  <div class="form-group">
                                                      <label>Mobile Number</label>
-                                                     <input type="text" class="form-control" placeholder="Mobile Number" pattern="[0-9]{10}" name="pmobNo" required>
+                                                     <input type="text" class="form-control" placeholder="Mobile Number" pattern="[0-9]{10}" id="pmobNo" name="pmobNo" required>
                                                  </div>
                                              </div>
                                              <div class="col-md-6 pr-1">
                                                  <div class="form-group">
                                                      <label for="exampleInputEmail1">Email address</label>
-                                                     <input type="email" class="form-control" placeholder="Email" name="pEmail">
+                                                     <input type="email" class="form-control" placeholder="Email" id="pEmail" name="pEmail">
                                                  </div>
                                              </div>
                                          </div>
@@ -169,7 +170,7 @@
                                              <div class="col-md-12 pr-1">
                                                  <div class="form-group">
                                                      <label>Address</label>
-                                                     <input type="text" class="form-control" placeholder="Home Address" name="pAddress" required>
+                                                     <input type="text" class="form-control" placeholder="Home Address" id="pAddress" name="pAddress" required>
                                                  </div>
                                              </div>
                                          </div>
@@ -178,19 +179,19 @@
                                              <div class="col-md-4 pr-1">
                                                  <div class="form-group">
                                                      <label>Pin code</label>
-                                                     <input type="text" class="form-control" placeholder="PIN Code" pattern="[0-9]{6}" name="pPincode" required>
+                                                     <input type="text" class="form-control" placeholder="PIN Code" pattern="[0-9]{6}" id="pPincode" name="pPincode" required>
                                                  </div>
                                              </div>
                                              <div class="col-md-4 pr-1">
                                                  <div class="form-group">
                                                      <label>State</label>
-                                                     <input type="text" class="form-control" placeholder="State" name="pState" required>
+                                                     <input type="text" class="form-control" placeholder="State" id="pState" name="pState" required>
                                                  </div>
                                              </div>
                                              <div class="col-md-4 pr-1">
                                                  <div class="form-group">
                                                      <label>City</label>
-                                                     <input type="text" class="form-control" placeholder="City" name="pCity" required>
+                                                     <input type="text" class="form-control" placeholder="City" id="pCity" name="pCity" required>
                                                  </div>
                                              </div>
                                          </div>
@@ -206,40 +207,21 @@
                                  <div class="card-image">
                                      <img src="https://ununsplash.imgix.net/photo-1431578500526-4d9613015464?fit=crop&fm=jpg&h=300&q=75&w=400" alt="...">
                                  </div>
-                                 <div class="card-body">
+                                 <div class="card-body" style="text-align: center;">
                                      <div class="author">
                                          <a href="#">
                                              <img class="avatar border-gray" src="/Welcome/assets/img/faces/face-01.jpg" alt="...">
-                                             <!-- <h5 class="title">Mike Andrew</h5> -->
                                          </a>
                                          <p class="description">
                                              <h3>Search Patient</h3>
                                          </p>
                                      </div>
-                                     <!-- <p class="description text-center">
-                                         "Lamborghini Mercy
-                                         <br> Your chick she so thirsty
-                                         <br> I'm in that two seat Lambo"
- 
-                                     </p> -->
                                      <div class="search-container" style="text-align: center;">
-                                             <input type="text" placeholder="Search.." name="search">
-                                             <button type="submit"><i class="fa fa-search"></i></button>
-                                         </form>
+                                            <input type="text" placeholder="Search.." name="search">
+                                            <button type="button" onclick="search1();"><i class="fa fa-search"></i></button>
+                                        
                                      </div>
                                  </div>
-                                 <!-- <hr>
-                                 <div class="button-container mr-auto ml-auto">
-                                     <button href="#" class="btn btn-simple btn-link btn-icon">
-                                          <i class="fa fa-facebook-square"></i>
-                                      </button>
-                                     <button href="#" class="btn btn-simple btn-link btn-icon">
-                                          <i class="fa fa-twitter"></i>
-                                      </button>
-                                     <button href="#" class="btn btn-simple btn-link btn-icon">
-                                          <i class="fa fa-google-plus-square"></i>
-                                      </button>
-                                 </div> -->
                              </div>
                          </div>
                      </div>
@@ -268,7 +250,6 @@
  <script src="/Welcome/Doctor/js/sign_pat.js"></script>
  <script src="/Welcome/Doctor/js/signin_doc.js"></script>
  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
  

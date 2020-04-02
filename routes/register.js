@@ -1,32 +1,38 @@
-var express = require('express');
-var session = require('express-session');
-var emailvalidator = require('email-validator');
-var router = express.Router();
-var mongoose = require('mongoose');
-var bodyParser = require('body-parser');
-router.use(bodyParser.json());
-router.use(bodyParser.urlencoded({ extended: true }));
-mongoose.Promise = global.Promise;
-const {RegChem,RegDoc,RegLabChem,PatInfo} = require('../src/models/InfoAll');
+import { Router } from 'express';
+import session from 'express-session';
+import { validate } from 'email-validator';
+import RegDoc from '../src/models/InfoAll/RegDoc';
+import RegChem from '../src/models/InfoAll/RegChem';
+import RegLabChem from '../src/models/InfoAll/RegLabChem';
+import PatInfo from '../src/models/InfoAll/PatInfo';
+import { json, urlencoded } from 'body-parser';
+
+var router = Router();
+router.use(json());
+router.use(urlencoded({ extended: true }));
+
 router.use(session({'secret':'jay',saveUninitialized:true,resave:true}));
 
 /* Register of Doctor */
 router.all('/RegDoc',(req,res,next) => {
-  if(emailvalidator.validate(req.body.drEmail)){
+  console.log('in the regdoc');
+  //if(validate(req.body.drEmail)){
+  try {
     let regdoc = new RegDoc({
-      drName : req.body.drName,
-      drmobNo : req.body.drmobNo,
-      _id : req.body.drEmail,
-      drPassword : req.body.drPassword,
-      drLicense : req.body.drLicense,
-      drCity : req.body.drCity,
-      drPincode : req.body.drPincode,
-      domain : req.body.domain,
-    });
+    _id : req.body.drEmail,
+    drName : req.body.drName,
+    drmobNo : req.body.drmobNo,
+    drPassword : req.body.drPassword,
+    drLicense : req.body.drLicense,
+    drCity : req.body.drCity,
+    drPincode : req.body.drPincode,
+    domain : req.body.domain,
+  });
+    console.log('catch it');
     regdoc.save().then(()=>{ req.session.email = req.body.drEmail; res.send('1');})
-    .catch(err => console.error('something going wrong',err))
-  }else{
-    res.send('EmailId is not Validate');
+    .catch(err => {res.send('soni'); console.log('something going wrong',err)})
+  } catch(e) {
+    console.log(e);
   }
 });
   
@@ -84,4 +90,4 @@ router.all('/patinfo',(req,res,next) => {
   .catch(err => console.error('something going wrong',err))
 });
 
-module.exports = router;
+export default router;

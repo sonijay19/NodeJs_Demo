@@ -1,22 +1,11 @@
-const mongoose = require('mongoose');
+/*import { connect, Schema, model } from 'mongoose';
 
-mongoose.connect('mongodb://localhost:27017/Information',{ useNewUrlParser: true })
+connect('mongodb://localhost:27017/Information',{ useNewUrlParser: true })
     .then(()=>console.log('Now connected to MongoDB'))
     .catch(err => console.error('something going wrong',err));
 
 
-const RegdocSchema = new mongoose.Schema({
-    _id : String,
-    drName : String,
-    drmobNo : String,
-    drPassword : String,
-    drLicense : String,
-    drCity : String,
-    drPincode : String,
-    domain : String,
-});
-
-const RagchemSchema = new mongoose.Schema({
+const RagchemSchema = new Schema({
     _id : String,
     cName : String,
     cmobNo : String,
@@ -27,7 +16,7 @@ const RagchemSchema = new mongoose.Schema({
     domain : String
 });
 
-const RegLabChemSchema = new mongoose.Schema({
+const RegLabChemSchema = new Schema({
     _id : String,
     lName : String,
     lmobNo : String,
@@ -39,7 +28,7 @@ const RegLabChemSchema = new mongoose.Schema({
     domain : String
 });
 
-const PatInfoSchema = new mongoose.Schema({
+const PatInfoSchema = new Schema({
     _id : String,
     pName : String,
     pGender : String,
@@ -55,9 +44,9 @@ const PatInfoSchema = new mongoose.Schema({
     pBlood : String,
 });
 
-const RegChem = mongoose.model('RegChem',RagchemSchema);
-const RegDoc = mongoose.model('RegDoc',RegdocSchema);
-const RegLabChem = mongoose.model('RegLabChem',RegLabChemSchema);
-const PatInfo = mongoose.model('PatInfo',PatInfoSchema);
+const RegChem = model('RegChem',RagchemSchema);
+const RegLabChem = model('RegLabChem',RegLabChemSchema);
+const PatInfo = model('PatInfo',PatInfoSchema);
 
-module.exports = {RegChem,RegDoc,RegLabChem,PatInfo};
+export default {RegChem,RegLabChem,PatInfo};
+*/

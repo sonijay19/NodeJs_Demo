@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Display </title>
+</head>
+
+<body>
+    <h3
+        style="background-color:black;color:blanchedalmond;text-align: center;width: 92%;left: 4%;position: relative;height: 50px;">
+        <span style="position: relative;top: 10px;">MEDICAL HISTORY</span>
+    </h3>
+    <% pat_his.history.forEach(function(user){ %>
+    <div class="container sam1" style="background-color: aquamarine;">
+        <div class="dialogbox">
+            <p style="font-weight: bold;color: black;width: 30%; position: relative;top: 45px;">Disease</p>
+            <div style="position: relative;left: 80%;">
+                Date <input type="text" disabled style="background-color: white;" value="<%= user.date %>">
+                
+            </div>
+            <div class="body " style="position: relative;top: 3px;">
+                <span class="tip tip-up "></span>
+                <div class="message ">
+                    <span><%= user.diseases %></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="dialogbox ">
+            <p style="font-weight: bold;color: black;width: 30%;position:relative;top: -10px; ">Medicine</p>
+            <div class="body " style="position: relative;top: -15px; ">
+                <span class="tip tip-up "></span>
+                <div class="message ">
+                    <span><%= user.medicine %></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="dialogbox ">
+            <p style="font-weight: bold;color: black;width: 30%;position: relative; top:-20px ;">Consult</p>
+            <div class="body " style="position: relative;top: -25px; ">
+                <span class="tip tip-up "></span>
+                <div class="message ">
+                    <span><%= user.consaltant %></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <% }); %>
+</body>
+</html>

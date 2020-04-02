@@ -55,25 +55,26 @@ function search1() {
 	console.log('in js');
     $.ajax({
         method: 'post',
-        url: '/Health1/PSearch1',
+        url: '/jay/search',
         dataType : 'json',
         data:({
         	id : $('#search').val(),
         }),
         success: function(data) {
-            document.getElementById("pName").value = data.myobj.pName;
+            console.log(data.pName);
+            document.getElementById("pName").value = data.pName.toString();
             //document.getElementById("pGender").value = data.myobj.pGender;
-            document.getElementById("pDate").value = data.myobj.pDate;
-            document.getElementById("pName").value = data.myobj.pName;
-            document.getElementById("pmobNo").value = data.myobj.pmobNo;
-            document.getElementById("pEmail").value = data.myobj.pEmail;
-            document.getElementById("pAddress").value = data.myobj.pAddress;
-            document.getElementById("pCity").value = data.myobj.pCity;
-            document.getElementById("pState").value = data.myobj.pState;
-            document.getElementById("pPincode").value = data.myobj.pPincode;
-            document.getElementById("pHeight").value = data.myobj.pHeight;
-            document.getElementById("pWeight").value = data.myobj.pWeight;
-            document.getElementById("pBlood").value = data.myobj.pBlood;
+            document.getElementById("pDate").value = data.pDate;
+            document.getElementById("pName").value = data.pName;
+            document.getElementById("pmobNo").value = data._id;
+            document.getElementById("pEmail").value = data.pEmail;
+            document.getElementById("pAddress").value = data.pAddress;
+            document.getElementById("pCity").value = data.pCity;
+            document.getElementById("pState").value = data.pState;
+            document.getElementById("pPincode").value = data.pPincode;
+            // document.getElementById("pHeight").value = data.pHeight;
+            // document.getElementById("pWeight").value = data.pWeight;
+            // document.getElementById("pBlood").value = data.pBlood;
             var elem = document.getElementById("btn11");
             if (elem.value=="Create Patient") elem.value = "Update Patient";
             else elem.value = "Update Patient";

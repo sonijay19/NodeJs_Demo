@@ -1,13 +1,11 @@
-var express = require('express');
+import express, { Router } from 'express';
 var app = express();
-var router = express.Router();
-var mongoose = require('mongoose');
-var bodyParser = require('body-parser');
-router.use(bodyParser.json());
-router.use(bodyParser.urlencoded({ extended: true }));
-mongoose.Promise = global.Promise;
-const {RegChem,RegDoc,RegLabChem} = require('../src/models/InfoAll');
-
+var router = Router();
+import { json, urlencoded } from 'body-parser';
+router.use(json());
+router.use(urlencoded({ extended: true }));
+import { RegChem,RegLabChem } from '../src/models/InfoAll';
+import RegDoc from '../src/models/InfoAll/RegDoc';
 
 /* Register of Doctor */
 router.all('/logDoc',(req,res,next) => {
@@ -17,7 +15,7 @@ router.all('/logDoc',(req,res,next) => {
             err ? 
             res.send('Pls register') :
             (RegDoc.drPassword == req.body.drPassWord ? (req.session.email = req.body.drEmail,res.send('1')): res.send('Password Is Wrong'));
-        }catch{res.send('You do not register yet');}
+        }catch(err){res.send('You do not register yet');}
     });
 });
 
@@ -30,7 +28,7 @@ router.all('/logchem',(req,res,next) => {
             err ? 
             res.send('Pls register') :
             (RegChem.cPassword == req.body.cPassword ? (req.session.email = req.body.cEmail,res.send('1')) : res.send('Password Is Wrong'));
-        }catch{res.send('You do not register yet');}
+        }catch(err){res.send('You do not register yet');}
     });
 });
 
@@ -43,9 +41,9 @@ router.all('/loglabchem',(req,res,next) => {
             err ? 
             res.send('Pls register') :
             (RegLabChem.lPassword == req.body.lPassword ? (req.session.email = req.body.lEmail,res.send('1')) : res.send('Password Is Wrong'));
-        }catch{res.send('You do not register yet');}
+        }catch(err){res.send('You do not register yet');}
     });
 });
 
 
-module.exports = router;
+export default router;
